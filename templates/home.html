@@ -9,5 +9,8 @@
 <body>
     <h1>Hola Mundo desde Django</h1>
     <h2>Con Templates</h2>
+    {{ request.user }}
+    <br>
+    {{ request.user.is_authenticated }}
 </body>
 </html>
