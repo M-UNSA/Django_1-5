@@ -6,7 +6,7 @@
     {{ myNumber }}
     <ul>
         {% for myItem in myList %}
-            <li>{{ myItem }}</li>
+            <li>{{ forloop.counter }} - {{ myItem }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
