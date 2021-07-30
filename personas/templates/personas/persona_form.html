@@ -1,11 +1,23 @@
 {% extends 'base.html' %}
 {% block title %}
-Nueva Persona
+    {% if request.get_full_path == "/persona/crear" %}
+        Nueva Persona
+    {% else %}
+        Actualizando Datos
+    {% endif %}
 {% endblock %}
 {% block content %}
-<h1> -Nueva Persona- </h1>
+    {% if request.get_full_path == "/persona/crear" %}
+    <h1> -Nueva Persona- </h1>
+    {% else %}
+    <h1> -Actualizando Datos- </h1>
+    {% endif %}
 <form method="POST"> {% csrf_token %}
     {{ form.as_p }}
+    {% if request.get_full_path == "/persona/crear" %}
     <input type="submit" value="Guardar">
+    {% else %}
+    <input type="submit" value="Actualizar">
+    {% endif %}    
 </form>
 {% endblock %}
