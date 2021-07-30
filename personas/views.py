@@ -6,7 +6,9 @@ from django.views.generic import (
     DetailView,
     CreateView,
     UpdateView,
+    DeleteView,
 )
+from django.urls import reverse_lazy
 
 # Create your views here.
 class PersonaListView(ListView) :
@@ -33,6 +35,10 @@ class PersonaUpdateView(UpdateView) :
         'edad',
         'donador',
     ]
+
+class PersonaDeleteView(DeleteView) :
+    model = Persona
+    success_url = reverse_lazy('personas:persona-list')
 
 def personaTestView(request) :
     obj = Persona.objects.get(id = 1)
