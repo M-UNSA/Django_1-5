@@ -10,12 +10,11 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy
 from django.views import View
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 class PersonaListView(ListView) :
     model = Persona
-    queryset = Persona.objects.filter(edad__lte='29')
 
 class PersonaDetailView(DetailView) :
     model = Persona
@@ -44,7 +43,8 @@ class PersonaDeleteView(DeleteView) :
 
 class PersonaQueryView(View) :
     def get(self, request, *args, **kwargs) :
-        return HttpResponse('Hola Mundo con Clase')
+        queryset = Persona.objects.filter(edad__lte='40')
+        return JsonResponse(list(queryset.values()), safe = False)
 
 def personaTestView(request) :
     obj = Persona.objects.get(id = 1)
