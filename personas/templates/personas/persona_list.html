@@ -3,7 +3,7 @@
     Lista de Personas
 {% endblock %}
 {% block content %}
-    <h1>Listado de Personas</h1>
+    <h1>-Listado de Personas-</h1>
 {% for instance in object_list %}
     <p>
         {{ instance.id }} - <a href='{{ instance.get_absolute_url }}'>{{ instance.nombre }}</a>

@@ -12,12 +12,14 @@ from personas.views import (
 from .views import (
     PersonaListView,
     PersonaDetailView,
+    PersonaCreateView,
 )
 
 app_name = 'personas'
 urlpatterns = [    
     path('/test', personaTestView, name='persona'),
-    path('/agregar', personaCreateView, name='createPersona'),
+    #path('/agregar', personaCreateView, name='createPersona'),
+    path('/crear', PersonaCreateView.as_view(), name='persona-create'),
     path('/ayuda', searchForHelp, name='ayuda'),
     path('/buscar', searchPersona, name='buscar'),
     path('/add', personasAnotherCreateView, name='OtroAgregarPersona'),    
