@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+Detalle de Personas
+{% endblock %}
+{% block content %}
+<h1> -Detalle de Personas- </h1>
+<h2>{{ object.apellidos }}/{{ object.nombre }}</h2>
+<p>{{ object.edad }} años de edad.</p>
+<h2>
+    {% if objeto.edad > 40 %}
+    Debe cuidarse del colesterol
+    {% else %}
+    Puede comer lo que quiera
+    {% endif %}
+</h2>
+<p>
+    {% if object.donador %}
+    Es
+    {% else %}
+    No es
+    {% endif %}
+    donador de órganos.
+</p>
+{% endblock %}
