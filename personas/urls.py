@@ -15,6 +15,7 @@ from .views import (
     PersonaCreateView,
     PersonaUpdateView,
     PersonaDeleteView,
+    PersonaQueryView,
 )
 
 app_name = 'personas'
@@ -32,4 +33,5 @@ urlpatterns = [
     path('/<int:pk>/borrar', PersonaDeleteView.as_view(), name = 'persona-delete'),
     #path('s', personasListView, name='listing'),
     path('s', PersonaListView.as_view(), name = 'persona-list'),
+    path('/query', PersonaQueryView.as_view(), name = 'persona-query'),
 ]
