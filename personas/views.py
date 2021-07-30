@@ -59,8 +59,15 @@ def personaDeleteView(request, myID) :
     if request.method == 'POST' :
         print("lo borro")
         obj.delete()
-        return redirect('/')
+        return redirect('/personas')
     context = {
         'objeto' : obj,
     }
     return render(request, 'personas/personaBorrar.html', context)
+
+def personasListView(request) :
+    queryset = Persona.objects.all()
+    context = {
+        'objectList' : queryset,
+    }
+    return render(request, 'personas/personasLista.html', context)
