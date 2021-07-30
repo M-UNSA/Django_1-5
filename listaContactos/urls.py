@@ -23,16 +23,18 @@ from personas.views import (
     searchPersona, 
     personasAnotherCreateView, 
     personaShowObject,
+    personaDeleteView,
     )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', myHomeView, name='Página de Inicio'),
     path('otro', anotherView, name='otro'),
-    path('persona', personaTestView, name='persona'),
+    path('persona/', personaTestView, name='persona'),
     path('agregar', personaCreateView, name='createPersona'),
     path('ayuda', searchForHelp, name='ayuda'),
     path('buscar', searchPersona, name='buscar'),
     path('add', personasAnotherCreateView, name='OtroAgregarPersona'),
-    path('persona/<int:myID>', personaShowObject, name = 'browsing')
+    path('persona/<int:myID>/', personaShowObject, name = 'browsing'),
+    path('persona/<int:myID>/borrar/', personaDeleteView, name = 'deleting'),
 ]
