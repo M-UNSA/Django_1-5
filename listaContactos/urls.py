@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', myHomeView, name='Página de Inicio'),
     path('otro', anotherView, name='otro'),
-    path('persona', include('personas.urls')),
+    path('persona', include('personas.urls'))
 ]
